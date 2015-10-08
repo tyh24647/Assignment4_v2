@@ -20,10 +20,7 @@ namespace Assignment4_v2.Middleware {
             var currentContext = httpContext.Request.Method.ToUpper();
 
             if ((currentContext == "POST" || currentContext == "PUT" || currentContext == "PATCH") && httpContext.Request.ContentType != "application/json") {
-                //return null;
                 httpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return _next(httpContext);
-                //httpContext.Response.StatusCode = 404;
             }
 
             return _next(httpContext);
