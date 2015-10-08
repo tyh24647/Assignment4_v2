@@ -11,22 +11,33 @@ namespace Assignment4_v2.Controllers {
 
     [Route("api/[controller]")]
     public class StarWarsController : Controller {
-    
-       
-        private static List<CharacterModel> characters = new List<CharacterModel>() {
-            new CharacterModel() {
-                FirstName = "Test",
-                Character = "Yoda"
-            }
+
+        private const int MAX_LIST_ENTRIES = 30;
+
+        private static CharacterModel startingCharacter = new CharacterModel() {
+            FirstName = "Test",
+            Character = "Yoda"
         };
+
+        private static NumTimesModel startingNumTimes = new NumTimesModel() {
+            FirstName = "NumTimesName",
+            NumberOfTimes = "35"
+        };
+       
+        private static List<CharacterModel> characters = new List<CharacterModel>() { startingCharacter };
         
 
-        private static List<NumTimesModel> numTimesList = new List<NumTimesModel>() {
-            new NumTimesModel() {
-                FirstName = "NumTimesTest",
-                NumberOfTimes = "35"
+        private static List<NumTimesModel> numTimesList = new List<NumTimesModel>() { startingNumTimes };
+
+
+        // Ensures that both lists do not have more than 30 entries
+        private void ValidateModelSizes() {
+            if (characters.Count >= MAX_LIST_ENTRIES) {
+                characters = new List<CharacterModel>() { startingCharacter };
+            } if (numTimesList.Count >= MAX_LIST_ENTRIES) {
+                numTimesList = new List<NumTimesModel>() { startingNumTimes };
             }
-        };
+        }
 
 
         // GET: api/StarWars
@@ -73,6 +84,7 @@ namespace Assignment4_v2.Controllers {
             }
 
             characters.Add(character);
+            ValidateModelSizes();
             return character;
         }
 
@@ -86,6 +98,7 @@ namespace Assignment4_v2.Controllers {
             }
             
             numTimesList.Add(numTimes);
+            ValidateModelSizes();
             return numTimes;
         }
 
@@ -94,8 +107,8 @@ namespace Assignment4_v2.Controllers {
         [Route("/")]
         public CharacterModel GetCharacter() {
             return new CharacterModel() {
-                FirstName = "Test character",
-                Character = "EXAAAMMPPPPLE"
+                FirstName = "Tyler",
+                Character = "Anybody except Jar-Jar"
             };
         }
 
