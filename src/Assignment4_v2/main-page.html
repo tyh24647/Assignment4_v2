@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Assignment 4</title>
+    <script type="text/javascript" src="functions.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+</head>
+<body>
+    <form>
+        Name: <input type="text" id="first-name" /><br />
+        Character: <input type="text" id="character" /><br />
+        Number of Times: <input type="text" id="num-times" /><br />
+        Index: <input type="text" id="index" /><br />
+
+        <br /><br />
+        <input type="button" id="forceGet" value="Force Get" onclick="forceGetFunc()" />
+        <input type="button" id="forcePush" value="Force Push" onclick="forcePushFunc()" />
+        <input type="button" id="forcePatch" value="Force Patch" onclick="forcePatchFunc()" />
+        <input type="button" id="forcePut" value="Force Put" onclick="forcePutFunc()" />
+    </form>
+
+    <br /><br />
+    <div id="result"></div>
+
+</body>
+</html>
