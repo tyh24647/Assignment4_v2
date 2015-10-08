@@ -23,9 +23,9 @@ namespace Assignment4_v2.Controllers {
             FirstName = "NumTimesName",
             NumberOfTimes = "35"
         };
-       
+
         private static List<CharacterModel> characters = new List<CharacterModel>() { startingCharacter };
-        
+
 
         private static List<NumTimesModel> numTimesList = new List<NumTimesModel>() { startingNumTimes };
 
@@ -34,7 +34,9 @@ namespace Assignment4_v2.Controllers {
         private void ValidateModelSizes() {
             if (characters.Count >= MAX_LIST_ENTRIES) {
                 characters = new List<CharacterModel>() { startingCharacter };
-            } if (numTimesList.Count >= MAX_LIST_ENTRIES) {
+            }
+
+            if (numTimesList.Count >= MAX_LIST_ENTRIES) {
                 numTimesList = new List<NumTimesModel>() { startingNumTimes };
             }
         }
@@ -70,11 +72,11 @@ namespace Assignment4_v2.Controllers {
             numTimesList = new List<NumTimesModel>() {
                 numTimes
             };
-            
+
             return numTimes;
         }
 
-        
+
         // POST: api/StarWars
         [HttpPost]
         public CharacterModel Post([FromBody]CharacterModel character) {
@@ -96,7 +98,7 @@ namespace Assignment4_v2.Controllers {
                 Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 return new NumTimesModel();
             }
-            
+
             numTimesList.Add(numTimes);
             ValidateModelSizes();
             return numTimes;
