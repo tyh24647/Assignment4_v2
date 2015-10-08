@@ -28,7 +28,7 @@ namespace Assignment4_v2.Controllers {
 
 
         private static List<NumTimesModel> numTimesList = new List<NumTimesModel>() { startingNumTimes };
-
+        
 
         // Ensures that both lists do not have more than 30 entries
         private void ValidateModelSizes() {
@@ -105,6 +105,7 @@ namespace Assignment4_v2.Controllers {
         }
 
 
+        // GET: /
         [HttpGet]
         [Route("/")]
         public CharacterModel GetCharacter() {

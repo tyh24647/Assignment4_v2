@@ -7,7 +7,7 @@ using Microsoft.AspNet.Http;
 using System.Net;
 
 namespace Assignment4_v2.Middleware {
-    // You may need to install the Microsoft.AspNet.Http.Abstractions package into your project
+
     public class Middleware {
         private readonly RequestDelegate _next;
 
